@@ -1,0 +1,89 @@
+body{
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background-image:url("img/bg-pg1.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+}
+
+.card{
+
+    background:rgba(255,255,255,0.2);
+
+    padding:40px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+
+    color:white;
+
+    position: relative;
+
+    min-height:250px;
+    
+    width:400px;
+}
+
+.buttons{
+    display:flex;
+
+    justify-content: center;
+    
+    gap:20px;
+
+    position:relative;
+}
+
+button{
+    padding:10px 20px; 
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+}
+
+button:hover{
+
+    transform:scale(1.1);
+
+}
+
+#nobtn{
+
+    position:absolute;
+
+    left:220px;
+
+    top:140px;
+
+    transition:0.2s;
+}
+
+input{
+    padding:10px 20px; 
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor: text;
+}
+
+input:hover{
+
+    transform:scale(1.1);
+}
