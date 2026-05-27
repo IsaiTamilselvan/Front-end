@@ -1,61 +1,170 @@
-//yes handling------------------------------------------
-let yesBtn=document.querySelector("#yesbtn");
+// ------------------------------------------------
+// SETUP
+// ------------------------------------------------
 
-yesBtn.onclick=()=>{
+let card = document.querySelector("#card");
 
-    if(yesBtn.innerHTML==="no"){
-        yesBtn.innerHTML="yeshh";
-        noBtn.innerHTML="haha"
+let proposalPage = card.innerHTML;
+
+
+// ------------------------------------------------
+// INITIAL LOAD
+// ------------------------------------------------
+
+setupProposalPage();
+
+
+// ------------------------------------------------
+// PROPOSAL PAGE LOGIC
+// ------------------------------------------------
+
+function setupProposalPage() {
+
+    let yesBtn = document.querySelector("#yesbtn");
+
+    let noBtn = document.querySelector("#nobtn");
+
+
+// YES BUTTON
+
+yesBtn.onclick = () => {
+
+    if (yesBtn.innerHTML.includes("YES")) {
+
+        showCommentsPage();
+
+    } else {
+
+        swapButtons();
+
+    }
+
+};
+
+
+// NO BUTTON
+
+noBtn.onclick = () => {
+
+    if (noBtn.innerHTML.includes("YES")) {
+
+        showCommentsPage();
+
+    } else {
+
+        swapButtons();
+
+    }
+
+};
+
+    // BUTTON MOVEMENT
+
+    noBtn.addEventListener("mouseenter", moveButton);
+
+    noBtn.addEventListener("touchstart", moveButton);
+
+
+    function moveButton() {
+
+        if (noBtn.innerHTML.includes("NO")) {
+
+            let x = Math.random() * 300;
+
+            let y = Math.random() * 150;
+
+            noBtn.style.left = `${x}px`;
+
+            noBtn.style.top = `${y}px`;
+
+        }
+
+    }
+
+
+    // SWAP BUTTON TEXT
+
+    function swapButtons() {
+
+        let temp = yesBtn.innerHTML;
+
+        yesBtn.innerHTML = noBtn.innerHTML;
+
+        noBtn.innerHTML = temp;
+
     }
 
 }
-//no button handling------------------------------------
 
-let noBtn=document.querySelector("#nobtn");
-noBtn.addEventListener("touchstart",movebutton);
-noBtn.addEventListener("mouseenter",movebutton);
 
-function movebutton(){
+// ------------------------------------------------
+// COMMENTS PAGE
+// ------------------------------------------------
 
-    let x=Math.random()*300;
-    let y=Math.random()*150;
-    noBtn.style.left=`${x}px`;
-    noBtn.style.top=`${y}px`;
+function showCommentsPage() {
 
-}
+    card.innerHTML = `
 
-noBtn.onclick=()=>{
-    noBtn.innerHTML="yes";
-    yesBtn.innerHTML="hug";
-    
-    if(noBtn.innerHTML==="yes"){
-        comments();
-    }
-}
-//proposal ui => comment -----------------------------------
-let card=document.querySelector("#card");
+    <button id="backBtn">⬅</button>
 
-yesBtn.onclick=()=>{
-    comments();
-}
+    <h1>Yayyyy 💖</h1>
 
-function comments(){
+    <p>Share your thoughts about Thamiz ✨</p>
 
-    card.innerHTML=`<h1>Yayyyy 💖</h1>
-
-    <p>Share your thoughts about thamiz ✨</p>
-
-    <input type="text" id="commentInput"
+    <input
+    type="text"
+    id="commentInput"
     placeholder="type here...">
 
     <button id="submitBtn">Send 💌</button>
 
-    <br>
-
-    <p>I can’t figure out who said,so just comment casually.</p>
+    <p>
+    I can’t figure out who said it,
+    so comment casually 💖
+    </p>
 
     <div id="comments"></div>
 
     `;
+
+
+    // BACK BUTTON
+
+    let backBtn = document.querySelector("#backBtn");
+
+    backBtn.onclick = () => {
+
+        card.innerHTML = proposalPage;
+
+        setupProposalPage();
+
+    };
+
+
+    // COMMENT BUTTON
+
+    let submitBtn = document.querySelector("#submitBtn");
+
+    // SUBMIT BUTTON FOR COMMENTS
+
+    submitBtn.onclick = () => {
+
+        let input = document.querySelector("#commentInput");
+
+        let text = input.value;
+
+        if (text !== "") {
+
+            document.querySelector("#comments").innerHTML += `
+
+            <p>${text}</p>
+
+            `;
+
+            input.value = "";
+
+        }
+
+    };
 
 }
