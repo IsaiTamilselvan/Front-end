@@ -87,3 +87,18 @@ input:hover{
 
     transform:scale(1.1);
 }
+
+#backBtn{
+
+    position:absolute;
+
+    top:15px;
+
+    left:15px;
+
+    padding:8px 15px;
+
+    color:black;
+
+    border-radius:8px;
+}
