@@ -155,11 +155,12 @@ function showCommentsPage() {
 
         if (text !== "") {
 
-            document.querySelector("#comments").innerHTML += `
-
-            <p>${text}</p>
-
-            `;
+            card.innerHTML =`
+            
+            <h1>Currently no API</h1>
+            <h4>😉send comment on instagram🤞</h4>
+            <img src="img/propose.png" alt="" width="190px" height="190px">
+            `
 
             input.value = "";
 
