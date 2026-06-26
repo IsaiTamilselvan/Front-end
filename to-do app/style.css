@@ -1,0 +1,30 @@
+li{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    background-color: sandybrown;
+    padding: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 20px;
+    width: 400px;
+    justify-content: space-between;
+    transition: 0.05s;
+    margin: 20px;
+}
+body{
+    background: linear-gradient(to right, tomato, orange);
+}
+.dash{
+    background: rgb(245, 213, 144);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+#top{
+    display: flex;
+}
+.removebtn:hover{
+    transition: 0.05s;
+    background-color: rgb(238, 109, 109);
+}
